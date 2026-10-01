@@ -1,16 +1,16 @@
-## Hi there 👋
+# THE KV COLLECTION
 
-<!--
-**kv-collection/kv-collection** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Women's Fashion Boutique — *Style that feels beautifully you.*
 
-Here are some ideas to get you started:
+Built with Next.js 16 and Tailwind CSS 4. Orders are placed on WhatsApp with Cash on Delivery.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Run locally
+
+```bash
+pnpm install
+pnpm dev
+```
+
+## Edit products
+
+Products and categories live in `lib/products.ts`. Contact details and social links live in `lib/site.ts`.
