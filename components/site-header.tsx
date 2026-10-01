@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -31,11 +32,13 @@ export function SiteHeader() {
     <>
       <div className="bg-primary px-4 py-2 text-center text-[11px] tracking-[0.18em] text-primary-foreground uppercase sm:text-xs">
         First delivery free <span aria-hidden="true" className="mx-2">·</span> Delivering across{" "}
-        {site.deliveryRegion} <span aria-hidden="true" className="mx-2 hidden sm:inline">·</span>
+        {site.deliveryRegion} <span className="mx-2 hidden sm:inline">·</span>
         <span className="hidden sm:inline">Cash on Delivery available</span>
       </div>
+
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
+
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -47,11 +50,19 @@ export function SiteHeader() {
             <Menu className="size-5" aria-hidden="true" />
           </button>
 
-          <Link href="/" className="flex flex-col items-center leading-none lg:items-start" aria-label="THE KV COLLECTION home">
-            <span className="font-serif text-xl font-semibold tracking-[0.2em] sm:text-2xl">THE KV COLLECTION</span>
-            <span className="mt-1 hidden text-[10px] tracking-[0.3em] text-muted-foreground uppercase sm:block">
-              {site.descriptor}
-            </span>
+          <Link
+            href="/"
+            className="flex items-center"
+            aria-label="THE KV COLLECTION home"
+          >
+            <Image
+              src="/images/IMG-20261001-WA0108.jpg"
+              alt="THE KV COLLECTION"
+              width={190}
+              height={65}
+              className="h-12 w-auto object-contain sm:h-14 lg:h-16"
+              priority
+            />
           </Link>
 
           <nav aria-label="Main" className="hidden lg:block">
@@ -86,7 +97,13 @@ export function SiteHeader() {
       </header>
 
       {open && (
-        <div id="mobile-menu" className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+        <div
+          id="mobile-menu"
+          className="fixed inset-0 z-50 lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+        >
           <button
             type="button"
             className="absolute inset-0 animate-fade-in bg-foreground/40"
@@ -94,9 +111,17 @@ export function SiteHeader() {
             aria-label="Close menu"
             tabIndex={-1}
           />
+
           <div className="relative flex h-full w-[85%] max-w-sm animate-fade-up flex-col bg-background px-6 py-6">
             <div className="flex items-center justify-between">
-              <span className="font-serif text-lg font-semibold tracking-[0.2em]">THE KV COLLECTION</span>
+              <Image
+                src="/images/IMG-20261001-WA0108.jpg"
+                alt="THE KV COLLECTION"
+                width={160}
+                height={55}
+                className="h-12 w-auto object-contain"
+              />
+
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -106,6 +131,7 @@ export function SiteHeader() {
                 <X className="size-5" aria-hidden="true" />
               </button>
             </div>
+
             <nav aria-label="Mobile" className="mt-10">
               <ul className="flex flex-col">
                 {[...navLinks, { href: "/cart", label: "Shopping Bag" }].map((link) => (
@@ -121,9 +147,13 @@ export function SiteHeader() {
                 ))}
               </ul>
             </nav>
+
             <p className="mt-auto text-sm leading-relaxed text-muted-foreground">
               Order on WhatsApp or call{" "}
-              <a href={`tel:${site.phoneTel}`} className="text-foreground underline underline-offset-4">
+              <a
+                href={`tel:${site.phoneTel}`}
+                className="text-foreground underline underline-offset-4"
+              >
                 {site.phoneDisplay}
               </a>
             </p>
